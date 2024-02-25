@@ -1,70 +1,150 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# _FocusHereUi_
 
-## Available Scripts
+#### By **Aaron Brown**
 
-In the project directory, you can run:
+#### A User Interface for the FocusHere API for tracking upcoming classes and focusing efforts for ADHD students and their families.
 
-### `npm start`
+## Description
+This user interface displays schedules, lessons and assignments for students of middle and high school.  It uses the API, whose repository is [here](https://github.com/aaronvbrown/FocusHereApi.Solution).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+General statements like "Catch Up On Classwork" and "Get ready for class" can be overwhelming for students with ADHD.  This tool reduces those anxieties by showing only needed and impactful information about upcoming classes, including:
+  * lessons (with links)
+  * important assignments (with links)
+  * important calendar dates
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is intentionally an API so that it can be consumed by varying user interfaces, including web apps and browsers.  In the future, it may link directly to existing tools created by the student's school (Canvas, Jumprope, Etc.) in order to automate data population and feedback from educators. Information will be queried with multiple filters, including default filters based on the current date.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used for this User Interface
 
-### `npm run build`
+* React
+* [Visual Studio Code](https://code.visualstudio.com/download)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup Requirements
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Documentation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Endpoints
+The base URL is: ***https://localhost:7095***
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Request Structure
+```
+GET /api/{component}
+POST /api/{component}
+GET /api/{component}/{id}
+PUT /api/{component}/{id}
+DELETE /api/{component}/{id}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Available Components
+- Parks
 
-## Learn More
+#### Example Queries - Parks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```http://localhost:5000/api/Parks``` (GET, POST)
+```http://localhost:5000/api/Parks/1``` (GET, PUT, DELETE)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##### Sample GET Index Response for ```http://localhost:5000/api/Parks```:  
+```
+[
+  {
+      "parkId": 1,
+      "name": "Yellowstone",
+      "state": "Montana",
+      "type": "National Park"
+  },
+  {
+      "parkId": 2,
+      "name": "Crater Lake",
+      "state": "Oregon",
+      "type": "National Park"
+  }
+]
+```
 
-### Code Splitting
+##### Sample POST Request ```http://localhost:5000/api/Parks``` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Request Body:
+```
+{
+    "name": "Mt St Helens",
+    "state": "Washington",
+    "type": "National Monument"
+}
+```
+Response Body:
+```
+{
+    "parkId": 6,
+    "name": "Mt St Helens",
+    "state": "Washington",
+    "type": "National Monument"
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##### Sample GET Response for ```http://localhost:5000/api/Parks/1```:  
+```
+  {
+      "parkId": 1,
+      "name": "Yellowstone",
+      "state": "Montana",
+      "type": "National Park"
+  }
+```
 
-### Making a Progressive Web App
+##### Sample PUT Request ```http://localhost:5000/api/Parks/1``` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+#### Query String Parameters 
+```GET /api/{component}/?{parameter}={value}```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+| Parameter | Data Type | Required/Optional | Description |
+| :---: | :---: | :---: | :---: |
+| name | string | optional | complete name of park (ex. {Crater Lake}, {Yellowstone})
+| state | string | optional | complete name of state (ex. {Rhode Island}, {Oregon})
+| type | string | optional | complete type of park (ex. {National Park}, {National Monument})
+| PageSize | int | optional | number of results per page ( defaults to 2, max 3 )
+| PageNumber | int | optional | page number requested (defaults to 1)
 
-### Deployment
+Filter results of the Parks index GET request using the above structure.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Example:  ```http://localhost:5000/api/Parks/?type=National Park```
 
-### `npm run build` fails to minify
+Chain filters together using & to separate the key=value pairs:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Example:  ```http://localhost:5000/api/Parks/?state=washington&PageNumber=2```
+
+
+
+
+## Known Bugs
+* Pagination via the "pagination" branch is now working as of 12/3/2023.
+* Please report any bugs at the [github repo issues page](https://github.com/aaronvbrown/ParkFinderAPI.Solution/issues)
+
+## Further Exploration
+* [Pagination](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-6.0)  
+- Pagination was implemented for this project.  
+- The default page number returned is 1.
+- The default page size is 2 and the max page size is 3.
+
+
+* [Token-Based Authentication](https://www.yogihosting.com/jwt-api-aspnet-core/)
+* [API Versioning](https://learn.microsoft.com/en-us/shows/visual-studio-toolbox/versioning-aspnet-core-services)
+* [CORS](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0)
+* General [Guide to Further Exploration with APIs](https://part-time-evening.learnhowtoprogram.com/c-and-net/building-an-api/further-exploration-with-apis) 
+
+## Attributions
+
+
+
+## License
+MIT License
+
+
+
+Copyright (c) 2023 Aaron Brown
