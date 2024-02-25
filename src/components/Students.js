@@ -6,7 +6,7 @@ function Students() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:7095/students')
+    fetch(`https://localhost:7095/api/Student`)  
       .then(response => {
         if (!response.ok) {
           throw new Error(`${response.status}: ${response.statusText}`);
