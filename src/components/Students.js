@@ -25,7 +25,7 @@ function Students() {
   }, []);
 
   if (error) {
-    return <h1>Error: </h1>
+    return <h1>Error: {error}</h1>
   } else if (!isLoaded) {
     return <h1>...Loading...</h1>
   } else {
