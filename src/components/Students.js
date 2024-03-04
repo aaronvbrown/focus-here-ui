@@ -35,7 +35,9 @@ function Students() {
           <h1>Students</h1>
           <ul>
             {students.map(student => (
-              <li key={student.id}>{student.name} -- Grade:  {student.gradeLevel} -- School:  {student.schoolName}</li>
+              <li key={student.id}>
+                <button>{student.name}</button> -- Grade: {student.gradeLevel} -- School: {student.schoolName}
+              </li>
             ))}
           </ul>
         </div>
