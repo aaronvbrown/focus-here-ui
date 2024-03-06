@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DeleteStudentButton from './DeleteStudentButton';
 
 function Students() {
   const [error, setError] = useState(null);
@@ -6,7 +7,7 @@ function Students() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch(`https://localhost:7095/api/Students`)  
+    fetch(`https://localhost:7095/api/Students`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`${response.status}: ${response.statusText}`);
@@ -22,7 +23,7 @@ function Students() {
         setError(error.message);
         setIsLoaded(true);
       });
-  }, []);
+  }, [isLoaded]);
 
   if (error) {
     return <h1>Error: {error}</h1>
@@ -30,18 +31,16 @@ function Students() {
     return <h1>...Loading...</h1>
   } else {
     return (
-      <React.Fragment>
-        <div>
-          <h1>Students</h1>
-          <ul>
-            {students.map(student => (
-              <li key={student.id}>
-                <button>{student.name}</button> -- Grade: {student.gradeLevel} -- School: {student.schoolName}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </React.Fragment>
+      <>
+        <h1>Students <button onClick={() => setIsLoaded(false)}>Update List</button></h1>
+        <ul>
+          {students.map(student => (
+            <li key={student.id}>
+              <button>{student.name}</button> -- Grade: {student.gradeLevel} -- School: {student.schoolName} <DeleteStudentButton studentId={student.studentId} />
+            </li>
+          ))}
+        </ul>
+      </>
     );
   }
 }
