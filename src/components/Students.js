@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DeleteStudentButton from './DeleteStudentButton';
+import EditStudent from './EditStudentForm';
 
 function Students() {
   const [error, setError] = useState(null);
@@ -36,7 +37,8 @@ function Students() {
         <ul>
           {students.map(student => (
             <li key={student.id}>
-              <button>{student.name}</button> -- Grade: {student.gradeLevel} -- School: {student.schoolName} <DeleteStudentButton studentId={student.studentId} />
+              {student.name} -- Grade: {student.gradeLevel} -- School: {student.schoolName} <DeleteStudentButton studentId={student.studentId} />
+              <EditStudent studentId={student.studentId} />
             </li>
           ))}
         </ul>
