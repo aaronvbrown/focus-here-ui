@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-function EditStudent() {
+function EditStudent(props) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [student, setStudent] = useState([]);
+  const { studentId } = props;
 
   const handleEdit = () => {
     console.log("handleEdit just fired")
   }
   
   useEffect(() => {
-    fetch(`https://localhost:7095/api/Students/{studentId}`)
+    fetch(`https://localhost:7095/api/Students/${studentId}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`${response.status}: ${response.statusText}`);

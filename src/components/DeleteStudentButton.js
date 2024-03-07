@@ -25,4 +25,4 @@ DeleteStudentButton.propTypes = {
   studentId: PropTypes.number
 }
 
-export default DeleteStudentButton;  
+export default DeleteStudentButton;
