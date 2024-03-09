@@ -38,7 +38,7 @@ function EditStudent(props) {
     return (
       <>
         {student ? (
-          <div>
+          <div class="edit-student-form">
             <input value={student.name} />
             <input value={student.gradeLevel} />
             <input value={student.schoolName} />
