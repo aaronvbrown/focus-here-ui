@@ -43,6 +43,6 @@
   align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: lightblue;
-  padding: 2px;
+  background-color: lightskyblue;
+  padding: 10px;
 }

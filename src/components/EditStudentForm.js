@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 function EditStudent(props) {
   const [error, setError] = useState(null);
@@ -28,26 +27,26 @@ function EditStudent(props) {
         setError(error.message);
         setIsLoaded(true);
       });
-  }, [isLoaded]);
-
-  if (error) {
-    return <h1>Error: {error}</h1>
-  } else if (!isLoaded) {
-    return <h1>...Loading...</h1>
-  } else {
-    return (
-      <>
-        {student ? (
-          <div class="edit-student-form">
-            <input value={student.name} />
-            <input value={student.gradeLevel} />
-            <input value={student.schoolName} />
-            <button onClick={() => handleEdit(student.studentId)}>Save</button>
-          </div>
-        ) : null}
-      </>
-    );
-  }
+    }, [isLoaded]);
+    
+    if (error) {
+      return <h1>Error: {error}</h1>
+    } else if (!isLoaded) {
+      return <h1>...Loading...</h1>
+      } else {
+        return (
+          <>
+          {student ? (
+            <div class="edit-student-form">
+              <input value={student.name} onChange={(e) => setStudent({ ...student, name: e.target.value })} />
+              <input value={student.gradeLevel} onChange={(e) => setStudent({ ...student, gradeLevel: e.target.value })} />
+              <input value={student.schoolName} onChange={(e) => setStudent({ ...student, schoolName: e.target.value })} />
+              <button onClick={() => handleEdit(student.studentId)}>Save</button>
+            </div>
+          ) : null}
+        </>
+      );
+    }
 }
 
 export default EditStudent;
