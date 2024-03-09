@@ -53,6 +53,16 @@
   align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: rgb(208, 248, 208);
+  background-color: rgb(218, 245, 218);
+  padding: 10px;
+}
+
+.header-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-color: rgb(59, 118, 187);
   padding: 10px;
 }

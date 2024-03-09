@@ -47,7 +47,7 @@ function EditStudent(props) {
               <input value={student.name} onChange={(e) => setStudent({ ...student, name: e.target.value })} />
               <input value={student.gradeLevel} onChange={(e) => setStudent({ ...student, gradeLevel: e.target.value })} />
               <input value={student.schoolName} onChange={(e) => setStudent({ ...student, schoolName: e.target.value })} />
-              <button onClick={() => handleEdit(student.studentId)}>Save</button>
+              <button onClick={() => handleEdit(student.studentId)}>Update</button>
             </div>
           ) : null}
         </>
