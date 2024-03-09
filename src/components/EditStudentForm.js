@@ -8,6 +8,13 @@ function EditStudent(props) {
 
   const handleEdit = () => {
     console.log("handleEdit just fired")
+    fetch(`https://localhost:7095/api/Students/${studentId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(student)
+    })
   }
   
   useEffect(() => {
