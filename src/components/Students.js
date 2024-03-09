@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DeleteStudentButton from './DeleteStudentButton';
 import EditStudent from './EditStudentForm';
+import NewStudentForm from './NewStudentForm';
 
 function Students() {
   const [error, setError] = useState(null);
@@ -26,6 +27,8 @@ function Students() {
       });
   }, [isLoaded]);
 
+
+
   if (error) {
     return <h1>Error: {error}</h1>
   } else if (!isLoaded) {
@@ -40,7 +43,11 @@ function Students() {
               {student.name} -- Grade: {student.gradeLevel} -- School: {student.schoolName} <DeleteStudentButton studentId={student.studentId} />
               <EditStudent studentId={student.studentId} />
             </li>
-          ))}
+          ))
+          }
+          <li>Create New Student
+            <NewStudentForm />
+          </li>
         </ul>
       </>
     );

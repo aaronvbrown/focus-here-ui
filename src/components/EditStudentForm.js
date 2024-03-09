@@ -7,7 +7,6 @@ function EditStudent(props) {
   const { studentId } = props;
 
   const handleEdit = () => {
-    console.log("handleEdit just fired")
     fetch(`https://localhost:7095/api/Students/${studentId}`, {
       method: 'PUT',
       headers: {

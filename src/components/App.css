@@ -43,6 +43,16 @@
   align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: lightskyblue;
+  background-color: rgb(219, 234, 243);
+  padding: 10px;
+}
+
+.new-student-form {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-color: rgb(208, 248, 208);
   padding: 10px;
 }
