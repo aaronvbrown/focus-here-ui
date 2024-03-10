@@ -48,6 +48,11 @@
   margin-right: 10%
 }
 
+.main-body {
+  background-image: url("./pencil_background_mild.jpg");
+
+}
+
 .new-form {
   display: flex;
   flex-direction: row;
@@ -68,4 +73,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   background-color: steelblue;
+  position:fixed;
+  top: 0;
+  padding: 0px;
+}
+
+ul {
+  font-weight: bold;
+  color: white;
 }

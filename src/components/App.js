@@ -10,9 +10,11 @@ function App() {
     <>
       <React.Fragment>
         <HeaderBar />
-        <Students />
-        <Courses />
-        <CanvasCourses />
+        <div class="main-body">
+          <Students />
+          <Courses />
+          <CanvasCourses />
+        </div>
       </React.Fragment>
     </>
   );

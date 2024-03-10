@@ -35,7 +35,7 @@ function CanvasCourses() {
         <ul>
           {canvasCourses.filter(c => c.enrollment_term_id === 11689).map(course => ( // parametrize this term id
             <li key={course.id}>
-              {course.course_code} -- StartDate: {course.start_at} -- Term: {course.enrollment_term_id}
+              {course.course_code}
             </li>
           ))
           }

@@ -123,23 +123,13 @@ Example:  ```http://localhost:5000/api/Parks/?state=washington&PageNumber=2```
 
 
 ## Known Bugs
-* Pagination via the "pagination" branch is now working as of 12/3/2023.
 * Please report any bugs at the [github repo issues page](https://github.com/aaronvbrown/ParkFinderAPI.Solution/issues)
 
-## Further Exploration
-* [Pagination](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-6.0)  
-- Pagination was implemented for this project.  
-- The default page number returned is 1.
-- The default page size is 2 and the max page size is 3.
+## Further Developments
 
-
-* [Token-Based Authentication](https://www.yogihosting.com/jwt-api-aspnet-core/)
-* [API Versioning](https://learn.microsoft.com/en-us/shows/visual-studio-toolbox/versioning-aspnet-core-services)
-* [CORS](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0)
-* General [Guide to Further Exploration with APIs](https://part-time-evening.learnhowtoprogram.com/c-and-net/building-an-api/further-exploration-with-apis) 
 
 ## Attributions
-
+* Photo by <a href="https://unsplash.com/@joannakosinska?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Joanna Kosinska</a> on <a href="https://unsplash.com/photos/two-gray-pencils-on-yellow-surface-1_CMoFsPfso?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 
 ## License
