@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 function NewStudentForm() {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
   const [student, setStudent] = useState([]);
 
   const handleNewStudent = () => {
@@ -17,7 +17,7 @@ function NewStudentForm() {
   };
 
   return (
-    <div class="new-student-form">
+    <div class="new-form">
       <input
         value={student.name}
         onChange={(e) => setStudent({ ...student, name: e.target.value })}

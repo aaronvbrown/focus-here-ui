@@ -37,7 +37,7 @@
   }
 }
 
-.edit-student-form {
+.edit-form {
   display: flex;
   flex-direction: row;
   align-items: left;
@@ -48,7 +48,7 @@
   margin-right: 10%
 }
 
-.new-student-form {
+.new-form {
   display: flex;
   flex-direction: row;
   align-items: left;
@@ -58,6 +58,7 @@
   padding: 4px;
   margin-right: 10%;
 }
+
 
 .header-bar {
   width: 100%;

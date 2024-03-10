@@ -43,7 +43,7 @@ function EditStudent(props) {
         return (
           <>
           {student ? (
-            <div class="edit-student-form">
+            <div class="edit-form">
               <input value={student.name} onChange={(e) => setStudent({ ...student, name: e.target.value })} />
               <input value={student.gradeLevel} onChange={(e) => setStudent({ ...student, gradeLevel: e.target.value })} />
               <input value={student.schoolName} onChange={(e) => setStudent({ ...student, schoolName: e.target.value })} />
