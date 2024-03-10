@@ -16,8 +16,9 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  max-height: 100vh;
+  /* display: flex;
+  flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -38,17 +39,19 @@
 }
 
 .edit-form {
+  /* visibility: hidden; */
   display: flex;
   flex-direction: row;
   align-items: left;
   justify-content: left;
   font-size: calc(10px + 2vmin);
-  background-color: rgb(219, 234, 243);
-  padding: 10px;
+  /* background-color: rgb(219, 234, 243); */
+  /* padding: 10px; */
   margin-right: 10%
 }
 
 .main-body {
+  padding-top: 110px;
   background-image: url("./pencil_background_mild.jpg");
 
 }
@@ -59,7 +62,7 @@
   align-items: left;
   justify-content: left;
   font-size: calc(10px + 2vmin);
-  background-color: rgb(218, 245, 218);
+  /* background-color: rgb(218, 245, 218); */
   padding: 4px;
   margin-right: 10%;
 }

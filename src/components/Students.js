@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DeleteStudentButton from './DeleteStudentButton';
+import EditStudentButton from './EditStudentButton';
 import EditStudent from './EditStudentForm';
 import NewStudentForm from './NewStudentForm';
 
@@ -41,6 +42,7 @@ function Students() {
           {students.map(student => (
             <li key={student.id}>
               {student.name} -- Grade: {student.gradeLevel} -- School: {student.schoolName} <DeleteStudentButton studentId={student.studentId} />
+              <EditStudentButton studentId={student.studentId} />
               <EditStudent studentId={student.studentId} />
             </li>
           ))
